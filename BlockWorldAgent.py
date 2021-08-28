@@ -1,5 +1,5 @@
 import copy
-import timeit
+import time
 
 
 class BlockWorldAgent:
@@ -28,7 +28,7 @@ class BlockWorldAgent:
         # from the first stack to the second stack in the example
         # above:[("C", "Table"), ("B", "E"), ("C", "A")]
 
-        start = timeit.default_timer()
+        start = time.time()
 
         class State:
             def __init__(self, first_stack, second_stack, total_num, moves=None):
@@ -108,7 +108,7 @@ class BlockWorldAgent:
         state = State(initial_arrangement, goal_arrangement, total_num)
         solution = state.goal_state_move()
 
-        end = timeit.default_timer()
+        end = time.time()
         run_time = str((end - start) * 1000)
         print("Running time:" + run_time + "ms")
         return solution
